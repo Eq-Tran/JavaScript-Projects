@@ -5,7 +5,7 @@ var h = d.getHours();
 var m = d.getMinutes();
 var s = d.getSeconds();
 var day = d.getDate();
-var month = d.getMonth();
+var month = d.getMonth() + 1;
 var year = d.getFullYear();
 
 h = standardTime(h);
@@ -14,8 +14,8 @@ s = checkTime(s);
 
 if(h >= 12){
     h = h - 12;
-}else {
-    h = h + 12;
+}else if(h == 0){
+    h = 12;
 }
 
 document.getElementById("date").innerHTML = month + "/" + day + "/" + year;
