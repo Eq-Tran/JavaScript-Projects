@@ -12,8 +12,16 @@ button.value = 'Get Joke';
 paragraph.setAttribute('class', 'paragraph');
 image.setAttribute('class', 'image');
 
-button.addEventListener('click', e => {
+button.addEventListener('click', function(){
+    getJoke(url)
+});
 
+body.appendChild(button);
+body.appendChild(paragraph);
+body.appendChild(image);
+
+function getJoke(url){
+    
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -23,8 +31,5 @@ button.addEventListener('click', e => {
         image.src = data.icon_url;
     })
     .catch(err => console.log('Request Failed', err));
-});
 
-body.appendChild(button);
-body.appendChild(paragraph);
-body.appendChild(image);
+}
